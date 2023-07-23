@@ -37,6 +37,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   percent_indicator: ^4.2.3 
   google_fonts :
+  http: ^1.1.0
+  ticket_widget: ^0.0.1
+  dotted_line: ^3.2.2
+  slide_to_act_reborn: ^3.0.0
+  screenshot: ^2.1.0
+  share_plus: ^7.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

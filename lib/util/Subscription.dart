@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learn/Pages/Transfer.dart';
 
 class Sub_Tile extends StatelessWidget {
   const Sub_Tile(
@@ -21,78 +22,85 @@ class Sub_Tile extends StatelessWidget {
     return Center(
       child: Padding(
         padding: const EdgeInsets.only(top: 8.0),
-        child: Container(
-          height: 100,
-          width: 330,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(25),
-            color: colors,
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    height: 40,
-                    width: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: box_color,
-                    ),
-                    child: Center(
-                      child: Image.asset(
-                        'lib/images/figma.png',
-                        color: Colors.black,
-                        width:
-                            20, // Ignored , IF Image is not set in a Center Widget
-                        height: 20,
-                        fit: BoxFit.contain,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Transfer()));
+          },
+          child: Container(
+            height: 100,
+            width: 330,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(25),
+              color: colors,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: box_color,
+                      ),
+                      child: Center(
+                        child: Image.asset(
+                          'lib/images/figma.png',
+                          color: Colors.black,
+                          width:
+                              20, // Ignored , IF Image is not set in a Center Widget
+                          height: 20,
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          Title,
-                          style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.bold),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 4.0),
-                          child: Text(
-                            Sub_title,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            Title,
                             style: TextStyle(
-                                fontSize: 10, color: Colors.grey[500]),
+                                fontSize: 15, fontWeight: FontWeight.bold),
                           ),
-                        )
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 4.0),
+                            child: Text(
+                              Sub_title,
+                              style: TextStyle(
+                                  fontSize: 10, color: Colors.grey[500]),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Text(
-                    Price,
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 4.0),
-                    child: Text(
-                      Date,
-                      style: TextStyle(fontSize: 13, color: Colors.grey[500]),
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      Price,
+                      style:
+                          TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                     ),
-                  )
-                ],
-              ),
-            ],
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 4.0),
+                      child: Text(
+                        Date,
+                        style: TextStyle(fontSize: 13, color: Colors.grey[500]),
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
