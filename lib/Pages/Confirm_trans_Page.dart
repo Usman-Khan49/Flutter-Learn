@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_learn/Components/Custom_Components.dart';
 import 'package:flutter_learn/Pages/Wallet.dart';
+import 'package:screenshot/screenshot.dart';
+import 'Transfer.dart';
 
 class Con_transfer extends StatelessWidget {
   const Con_transfer({super.key});
