@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/Pages/Transfer.dart';
+import 'package:flutter_learn/Pages/Wallet_UI/Transfer.dart';
 
 class Sub_Tile extends StatelessWidget {
   const Sub_Tile(

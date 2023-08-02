@@ -50,14 +50,48 @@ class _Custom_buttonState extends State<Custom_button> {
                     color: Colors.white,
                   ),
                 ),
-                Text(
-                  widget.title,
-                  style: TextStyle(
-                      color: widget.text_color, fontSize: widget.fontsize),
+                Padding(
+                  padding: const EdgeInsets.only(right: 25.0),
+                  child: Text(
+                    widget.title,
+                    style: TextStyle(
+                        color: widget.text_color, fontSize: widget.fontsize),
+                  ),
                 )
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class Formfield extends StatelessWidget {
+  const Formfield(
+      {super.key,
+      required this.Controller,
+      required this.Label,
+      this.obscure = false});
+
+  final TextEditingController Controller;
+  final String Label;
+  final bool obscure;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      child: TextField(
+        obscureText: obscure,
+        autofocus: true,
+        controller: Controller,
+        decoration: InputDecoration(
+          labelText: Label,
+          border: UnderlineInputBorder(
+            borderSide:
+                BorderSide(color: Colors.black, style: BorderStyle.solid),
+          ),
+          constraints: BoxConstraints.tightFor(width: 300, height: 50),
         ),
       ),
     );

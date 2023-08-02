@@ -2,9 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_learn/Components/Custom_Components.dart';
-import 'package:flutter_learn/Pages/Wallet.dart';
-import 'package:screenshot/screenshot.dart';
-import 'Transfer.dart';
+import 'package:flutter_learn/Pages/Wallet_UI/Wallet.dart';
+
 
 class Con_transfer extends StatelessWidget {
   const Con_transfer({super.key});
@@ -62,6 +61,7 @@ class Con_transfer extends StatelessWidget {
                 button_Icon: Icons.ios_share,
                 title: 'Share Receipt',
                 Button_color: Color(0xff28253B),
+                onTap: () {},
               ),
               Custom_button(
                 button_Icon: Icons.biotech_rounded,
@@ -74,8 +74,12 @@ class Con_transfer extends StatelessWidget {
                 text_color: Colors.black,
                 fontsize: 15,
                 padding: 0,
-                onTap: () => Navigator.push(context,
-                    MaterialPageRoute(builder: ((context) => const Wallet()))),
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: ((context) => const Wallet()),
+                  ),
+                ),
               ),
             ],
           ),

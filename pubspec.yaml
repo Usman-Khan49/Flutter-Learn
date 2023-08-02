@@ -43,9 +43,23 @@ dependencies:
   slide_to_act_reborn: ^3.0.0
   screenshot: ^2.1.0
   share_plus: ^7.0.2
+  provider: ^6.0.5
+  firebase_core: ^2.15.0
+  firebase_auth: ^4.7.2
+  
+
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_native_splash: ^2.3.1
+  
+flutter_native_splash:
+  background_image: assets/SplashScreen.png
+  image: lib/images/figma.png
+
+
+  
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

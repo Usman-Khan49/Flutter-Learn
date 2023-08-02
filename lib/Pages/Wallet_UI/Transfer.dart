@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'package:path_provider/path_provider.dart';
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/Pages/Wallet.dart';
+import 'package:flutter_learn/Pages/Wallet_UI/Wallet.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:slide_to_act_reborn/slide_to_act_reborn.dart';
 import 'package:ticket_widget/ticket_widget.dart';
@@ -13,13 +13,16 @@ import 'Confirm_trans_Page.dart';
 
 class Transfer extends StatefulWidget {
   const Transfer({super.key});
-
   @override
   State<Transfer> createState() => _TransferState();
 }
 
 class _TransferState extends State<Transfer> {
   ScreenshotController screenshotController = ScreenshotController();
+
+  void CaptureImage() {
+    _captureAndShareReceipt();
+  }
 
   Future<void> _captureAndShareReceipt() async {
     // Capture the screenshot
@@ -154,7 +157,8 @@ class _TransferState extends State<Transfer> {
                   text: 'Swipe to Confirm',
                   textStyle: TextStyle(color: Colors.grey[500], fontSize: 15),
                   sliderRotate: false,
-                  onSubmit: () => _captureAndShareReceipt(),
+                  onSubmit: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Con_transfer())),
                 ),
               )
             ],
