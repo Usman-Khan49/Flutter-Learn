@@ -5,8 +5,9 @@ import 'package:flutter_learn/Pages/Cart_Shoppinglist/Sign_up.dart';
 import '../../Components/Custom_Components.dart';
 
 class Login extends StatefulWidget {
-  const Login({super.key});
+  const Login({super.key, this.ontap});
 
+  final void Function()? ontap;
   @override
   State<Login> createState() => _LoginState();
 }
@@ -15,9 +16,7 @@ class _LoginState extends State<Login> {
   final EmailController = TextEditingController();
   final PasswordController = TextEditingController();
 
-  // User's SignIn Method
   void Signin() async {
-    // Circular Progress Indicator
     showDialog(
       context: context,
       builder: (context) => Center(
@@ -126,8 +125,7 @@ class _LoginState extends State<Login> {
                       style: TextStyle(color: Colors.grey),
                     ),
                     GestureDetector(
-                      onTap: () => Navigator.push(context,
-                          MaterialPageRoute(builder: ((context) => Signup()))),
+                      onTap: widget.ontap,
                       child: Text(
                         'SIGN UP',
                         style: TextStyle(

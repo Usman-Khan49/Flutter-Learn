@@ -1,16 +1,45 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_learn/Pages/Cart_Shoppinglist/Login.dart';
 import '../../Components/Custom_Components.dart';
 
 class Signup extends StatefulWidget {
-  const Signup({super.key});
-
+  const Signup({super.key, this.onTap});
+  final void Function()? onTap;
   @override
   State<Signup> createState() => _SignupState();
 }
 
 class _SignupState extends State<Signup> {
-  final Controller = TextEditingController();
+  // User Credentials Controllers
+  final UserController = TextEditingController();
+  final EmailController = TextEditingController();
+  final PasswordController = TextEditingController();
+
+  void SignIn() async {
+    showDialog(
+      context: context,
+      builder: (context) => Center(
+        child: CircularProgressIndicator(
+          color: Color(0xfffac204),
+        ),
+      ),
+    );
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: EmailController.text,
+        password: PasswordController.text,
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+    } catch (e) {
+      print(e);
+    }
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,15 +69,15 @@ class _SignupState extends State<Signup> {
                   ),
                 ),
                 Formfield(
-                  Controller: Controller,
+                  Controller: UserController,
                   Label: 'Username',
                 ),
                 Formfield(
-                  Controller: Controller,
+                  Controller: EmailController,
                   Label: 'Email',
                 ),
                 Formfield(
-                  Controller: Controller,
+                  Controller: PasswordController,
                   Label: 'Password',
                 ),
                 SizedBox(
@@ -58,6 +87,7 @@ class _SignupState extends State<Signup> {
                   Button_color: Color(0xfffac204),
                   title: 'SIGN UP',
                   padding: 0,
+                  onTap: () => SignIn(),
                 ),
                 SizedBox(
                   height: 5,
@@ -70,8 +100,7 @@ class _SignupState extends State<Signup> {
                       style: TextStyle(color: Colors.grey),
                     ),
                     GestureDetector(
-                      onTap: () => Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Login())),
+                      onTap: widget.onTap,
                       child: Text(
                         'LOGIN',
                         style: TextStyle(
